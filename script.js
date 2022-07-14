@@ -3,41 +3,72 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+  if (playerWin === 5) {
+    return `You win! Player - ${playerWin} || Computer - ${compWin}`;
+  } else if (compWin === 5) {
+    return `Computer wins! Player - ${playerWin} || Computer - ${compWin}`;
+  }
   if (playerSelection === computerSelection) {
-    return console.log(
-      `You both selected ${computerSelection}! The round is a tie!`
-    );
+    return `You both selected ${computerSelection}! The round is a tie! The score: Player - ${playerWin} || Computer - ${compWin}`;
   } else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
       compWin++;
-      return console.log("Paper covers rock. You lose!");
+      return `Paper covers rock. You lose! The score: Player - ${playerWin} || Computer - ${compWin}`;
     } else playerWin++;
-    return console.log("Rock smashes scissors. You win!");
+    return `Rock smashes scissors. You win! The score: Player - ${playerWin} || Computer - ${compWin}`;
   } else if (playerSelection === "paper") {
     if (computerSelection === "rock") {
       playerWin++;
-      return console.log("Paper covers rock. You win!");
+      return `Paper covers rock. You win! The score: Player - ${playerWin} || Computer - ${compWin}`;
     } else compWin++;
-    return console.log("Scissors cuts paper. You lose!");
+    return `Scissors cuts paper. You lose! The score: Player - ${playerWin} || Computer - ${compWin}`;
   } else {
     if (computerSelection === "rock") {
       compWin++;
-      return console.log("Rock smashes scissors. You lose!");
+      return `Rock smashes scissors. You lose! The score: Player - ${playerWin} === Computer - ${compWin}`;
     } else playerWin++;
-    return console.log("Scissors cuts paper. You win!");
+    return `Scissors cuts paper. You win! The score: Player - ${playerWin} || Computer - ${compWin}`;
   }
 }
 
-window.addEventListener("click", function (e) {
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+rock.addEventListener("click", () => {
   const container = document.querySelector(".container");
   const display = document.createElement("div");
 
-  playerSelection = e.target.textContent.toLowerCase();
+  playerSelection = rock.textContent.toLowerCase();
   computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
+  display.textContent = playRound(playerSelection, computerSelection);
+  display.classList.add("display");
+
+  container.appendChild(display);
+});
+
+paper.addEventListener("click", () => {
+  const container = document.querySelector(".container");
+  const display = document.createElement("div");
+
+  playerSelection = paper.textContent.toLowerCase();
+  computerSelection = computerPlay();
+  display.textContent = playRound(playerSelection, computerSelection);
 
   display.classList.add("display");
-  display.textContent = `You chose ${playerSelection}! Computer chose ${computerSelection}!`;
+
+  container.appendChild(display);
+});
+
+scissors.addEventListener("click", () => {
+  const container = document.querySelector(".container");
+  const display = document.createElement("div");
+
+  playerSelection = scissors.textContent.toLowerCase();
+  computerSelection = computerPlay();
+  display.textContent = playRound(playerSelection, computerSelection);
+
+  display.classList.add("display");
 
   container.appendChild(display);
 });
