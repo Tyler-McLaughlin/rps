@@ -30,10 +30,6 @@ function playRound(playerSelection, computerSelection) {
       return `Scissors cuts paper. You win!`;
     }
   }
-  if (playerWin === 5) {
-    return `YOU BEAT THE COMPUTER! ${playerWin} to ${compWin}!`;
-  } else
-    return `THE COMPUTER DOMINATES AS EXPECTED! ${compWin} to ${playerWin}!`;
 }
 
 function checkWinner(playerWin, compWin) {
