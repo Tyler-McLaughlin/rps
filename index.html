@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/Projects/rps/style.css" />
+    <link rel="stylesheet" href="/Projects/rps/style.css" defer />
     <script src="/Projects/rps/script.js" defer></script>
     <title>ROCK PAPER SCISSORS</title>
   </head>
   <body>
     <div class="container">
-      <button class="rock">ROCK</button>
-      <button class="paper">PAPER</button>
-      <button class="scissors">SCISSORS</button>
+      <div class="score-container">
+        <div class="player-container score">
+          <h1 class="player-score">PLAYER</h1>
+        </div>
+        <div class="comp-container score">
+          <h1 class="comp-score">COMPUTER</h1>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="rock">ROCK</button>
+        <button class="paper">PAPER</button>
+        <button class="scissors">SCISSORS</button>
+      </div>
     </div>
   </body>
 </html>
